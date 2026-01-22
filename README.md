@@ -1,0 +1,1 @@
+Riffle is a very simple trivia game with questions and answers read from a CSV file. It's meant for anyone that wants a simple way to hold a trivia night without having to fiddle with code, servers, or third-party platforms.
