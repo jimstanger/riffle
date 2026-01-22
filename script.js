@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchQuestions = async () => {
         try {
-            const res = await fetch('/data/nosc_trivia.csv');
+            const res = await fetch('/data/trivia.csv');
             const csvData = await res.text();
             questions = parseCSV(csvData);
         } catch (error) {
