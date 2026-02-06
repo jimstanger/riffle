@@ -1,5 +1,5 @@
 {
-  "name": "tavern-trivia",
+  "name": "Riffle Trivia",
   "module": "index.ts",
   "type": "module",
   "private": true,

@@ -56,7 +56,7 @@ function Host() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left Column - Teams */}
+          {/* Left Column - Teams & Current Question */}
           <div className="space-y-6">
             {/* Add Team */}
             <div className="bg-white rounded-lg p-6 shadow-md">
@@ -65,7 +65,7 @@ function Host() {
                 <input
                   type="text"
                   value={teamName}
-                  onChange={(e) => setTeamName(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTeamName(e.target.value)}
                   placeholder="Team name..."
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -130,9 +130,38 @@ function Host() {
                 </div>
               )}
             </div>
+
+            {/* Current Question Preview */}
+            {currentQuestion && (
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <h2 className="text-xl font-bold mb-4 text-gray-800">
+                  Current Question
+                </h2>
+                <div className="text-sm text-blue-600 mb-2">
+                  {currentQuestion.category} • {currentQuestion.difficulty}
+                </div>
+                <div
+                  className="text-lg font-semibold mb-4 text-gray-800"
+                  dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
+                />
+                <div className="space-y-2">
+                  <div className="text-sm font-bold text-green-700 bg-green-50 p-2 rounded">
+                    ✓ {currentQuestion.correct_answer}
+                  </div>
+                  {currentQuestion.incorrect_answers.map((answer, index) => (
+                    <div
+                      key={index}
+                      className="text-sm text-gray-600 bg-gray-50 p-2 rounded"
+                    >
+                      {answer}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Right Column - Question & Controls */}
+          {/* Right Column - Controls */}
           <div className="space-y-6">
             {/* Question Controls */}
             <div className="bg-white rounded-lg p-6 shadow-md">
@@ -218,35 +247,6 @@ function Host() {
                 </div>
               </div>
             </div>
-
-            {/* Current Question Preview */}
-            {currentQuestion && (
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h2 className="text-xl font-bold mb-4 text-gray-800">
-                  Current Question
-                </h2>
-                <div className="text-sm text-blue-600 mb-2">
-                  {currentQuestion.category} • {currentQuestion.difficulty}
-                </div>
-                <div
-                  className="text-lg font-semibold mb-4 text-gray-800"
-                  dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
-                />
-                <div className="space-y-2">
-                  <div className="text-sm font-bold text-green-700 bg-green-50 p-2 rounded">
-                    ✓ {currentQuestion.correct_answer}
-                  </div>
-                  {currentQuestion.incorrect_answers.map((answer, index) => (
-                    <div
-                      key={index}
-                      className="text-sm text-gray-600 bg-gray-50 p-2 rounded"
-                    >
-                      {answer}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
