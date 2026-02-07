@@ -55,9 +55,9 @@ function Host() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6" style='padding: 40px'>
           {/* Left Column - Teams & Current Question */}
-          <div className="space-y-6">
+          <div className="space-y-6 p-10">
             {/* Add Team */}
             <div className="bg-white rounded-lg p-6 shadow-md">
               <h2 className="text-xl font-bold mb-4 text-gray-800">Add Team</h2>
@@ -162,7 +162,7 @@ function Host() {
           </div>
 
           {/* Right Column - Controls */}
-          <div className="space-y-6">
+          <div className="space-y-6 p-10">
             {/* Question Controls */}
             <div className="bg-white rounded-lg p-6 shadow-md">
               <h2 className="text-xl font-bold mb-4 text-gray-800">
